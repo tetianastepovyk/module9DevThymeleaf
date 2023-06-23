@@ -1,5 +1,5 @@
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.templateresolver.FileTemplateResolver;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 import org.thymeleaf.context.Context;
 import javax.servlet.ServletException;
@@ -23,8 +23,8 @@ public class TimeServlet extends HttpServlet {
     public void init() throws ServletException {
         engine = new TemplateEngine();
 
-       FileTemplateResolver resolver = new FileTemplateResolver();
-        resolver.setPrefix("C:/Users/Tanya/project1/mjdule9Thymeleaf/src/main/resources/templates/");
+        ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
+        resolver.setPrefix("/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
         resolver.setOrder(engine.getTemplateResolvers().size());
